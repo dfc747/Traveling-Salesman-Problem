@@ -54,20 +54,15 @@ public class algorithms {
 	public static ArrayList<Point2D> RNN(ArrayList<Point2D> source) {
 
 
-		ArrayList<Point2D> result = new ArrayList<Point2D>();
+		ArrayList<Point2D> result;
 		ArrayList<Point2D> minimumResult = new ArrayList<>();
 		double smallestTour = Double.POSITIVE_INFINITY;
 		int maxrun = source.size();
 
-		/*
-		if (maxrun > 40){ // limit to 40 runs for demonstration only.
-			maxrun = 40;
-		}
-		*/
-
 		for ( int i = 0; i < maxrun; i++){ // Try with all possible starting cities
 			ArrayList<Point2D> cities = new ArrayList<>(source);
 			result = new ArrayList<>();
+
 			double distance;
 
 			Point2D currentCity = cities.remove(i);
@@ -114,7 +109,6 @@ public class algorithms {
 			changed = false;
 			for (int i = 0; i < route.size(); i++) {
 				for (int k = i + 1; k < route.size() - 1; k++) {
-
 					// makes the swap only when we cut some distance
 					if (distanceDifference(route, i, k) > 0) { // distance is positive, swap the edges to decrease routeLength.
 						swap(route, i, k);
@@ -132,7 +126,7 @@ public class algorithms {
 	}
 
 	// Reverse points between start and end
-	public static ArrayList<Point2D> swap(ArrayList<Point2D> tour, int start, int end){
+	private static ArrayList<Point2D> swap(ArrayList<Point2D> tour, int start, int end){
 
 		int length = (end - start + 1); // The length of inner ArrayList between start and end inclusive
 
@@ -148,7 +142,7 @@ public class algorithms {
 	// Calculates the distance difference of edges
 	// it is used for two-opt to check if we save any distanceDifference before we make the swap.
 	// if distanceDifference is positive then the new distance will be smaller if we swap them.
-	public static double distanceDifference(ArrayList<Point2D> tour, int i, int j){
+	private static double distanceDifference(ArrayList<Point2D> tour, int i, int j){
 
 		// if we have the first city then the previous is the last
 		if ( i - 1 < 0) {

@@ -10,10 +10,10 @@ public class tsp {
 		//berlin52.tsp
 		//rl5915.tsp
 
-		final String file = "C://Users//dfc//Desktop//uni//Algorithms and Data Structures//Coursework//ALL_tsp//berlin52.tsp";
+		final String file = "C://Users//dfc//Desktop//uni//3rd Year//Trimester 1//Software Development 3//Week 2 OOP Catchup//TSP//src//berlin52.tsp";
 
 		ArrayList<Point2D> al = utilities.loadTSPLib(file); // load tsp file to arraylist
-		ArrayList<Point2D> result = new ArrayList<>();
+		ArrayList<Point2D> result;
 
 		long startTime, stopTime;
 		startTime = System.currentTimeMillis();
